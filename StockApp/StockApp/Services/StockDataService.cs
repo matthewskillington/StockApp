@@ -28,5 +28,12 @@ namespace StockApp.Services
         {
             return Stocks;
         }
+
+        public void UpdateStockPrice(Stock stock, double newPrice)
+        {
+            Stock selected = GetStockByName(stock.Name);
+
+            selected.Price = newPrice;
+        }
     }
 }

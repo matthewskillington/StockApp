@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Threading.Tasks;
 using StockApp.Bootstrap;
+using StockApp.Views;
+using StockApp.Services;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,7 +15,13 @@ namespace StockApp
         {
             InitializeComponent();
             AppContainer.RegisterDependencies();
-            MainPage = new NavigationPage(new MainPage());
+            InitializeNavigation();
+        }
+
+        private void InitializeNavigation()
+        {
+            var navigationService = AppContainer.Resolve<INavigationService>();
+            navigationService.InitializeAsync();
         }
 
         protected override void OnStart()

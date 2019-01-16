@@ -9,5 +9,6 @@ namespace StockApp.Contracts.Services
     {
         List<Stock> GetAllStocks();
         Stock GetStockByName(string name);
+        void UpdateStockPrice(Stock stock, double newPrice);
     }
 }

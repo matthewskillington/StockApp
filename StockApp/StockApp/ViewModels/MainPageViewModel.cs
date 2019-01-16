@@ -3,20 +3,53 @@ using StockApp.Models;
 using StockApp.Services;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace StockApp.ViewModels
 {
-    public class MainPageViewModel
+    public class MainPageViewModel : BindableObject
     {
+        private ObservableCollection<Stock> _stocks;
 
-        public List<Stock> Stocks;
+        public ObservableCollection<Stock> Stocks
+        {
+            get => _stocks;
+            set
+            {
+                if(value != _stocks)
+                {
+                    _stocks = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
 
-        public MainPageViewModel()
+        public IStockDataService _stockDataService;
+
+        public MainPageViewModel(IStockDataService stockDataService)
         {
 
-            Stocks = new StockDataService().GetAllStocks();
+            _stockDataService = stockDataService;
+            var stockList = stockDataService.GetAllStocks();
+
+            Stocks = new ObservableCollection<Stock>();
+            foreach(var stock in stockList)
+            {
+                Stocks.Add(stock);
+            }
 
         }
+
+        public ICommand UpdateCommand => new Command(OnUpdatePrices);
+
+        private void OnUpdatePrices()
+        {
+            Stocks[0].Price = 126.10;
+        }
+        
+
     }
 }

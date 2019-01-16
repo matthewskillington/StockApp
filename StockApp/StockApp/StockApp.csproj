@@ -15,5 +15,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Bootstrap\" />
+    <Folder Include="Delegates\" />
+    <Folder Include="Styles\" />
   </ItemGroup>
 </Project>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:utility="clr-namespace:StockApp.Utility;assembly=StockApp"
+    utility:ViewModelLocator.AutoWireViewModel="True"
+    x:Class="StockApp.Views.LoginPage">
+    <ContentPage.Content>
+        <StackLayout Padding="20" BackgroundColor="#F0F4F3">
+            <Entry Placeholder="Username"
+                   Style="{StaticResource loginTextEntry}"/>
+            <Entry Placeholder="Password"
+                   Style="{StaticResource loginTextEntry}"/>
+            <Button Text="Login" BackgroundColor="#ED553B" TextColor="White" FontAttributes="Bold"/>
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

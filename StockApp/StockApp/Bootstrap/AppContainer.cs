@@ -16,8 +16,10 @@ namespace StockApp.Bootstrap
 
             //ViewModels
             builder.RegisterType<MainPageViewModel>();
+            builder.RegisterType<LoginPageViewModel>();
             //Services
             builder.RegisterType<StockDataService>().As<IStockDataService>();
+            builder.RegisterType<NavigationService>().As<INavigationService>();
 
 
             _container = builder.Build();
