@@ -11,7 +11,7 @@
                    Style="{StaticResource loginTextEntry}"/>
             <Entry Placeholder="Password"
                    Style="{StaticResource loginTextEntry}"/>
-            <Button Text="Login" BackgroundColor="#ED553B" TextColor="White" FontAttributes="Bold"/>
+            <Button Text="Login" BackgroundColor="#ED553B" TextColor="White" FontAttributes="Bold" Command="{Binding LoginCommand}"/>
         </StackLayout>
         
     </ContentPage.Content>

@@ -20,10 +20,10 @@ namespace StockApp.Services
         }
 
         public void InitializeAsync()
-        {   
+        {
             NavigateToAsync<LoginPageViewModel>();
         }
-
+        
         public void NavigateToAsync<TViewModel>()
         {
             var page = CreatePage(typeof(TViewModel));
